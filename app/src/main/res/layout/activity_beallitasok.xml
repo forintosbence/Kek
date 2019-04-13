@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_beallitasok"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="hu.kek.BeallitasokActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <Switch
+                android:id="@+id/kepernyozarKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Képernyőzár letiltása "
+                android:textSize="18sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/temaValtasKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/kepernyozarKapcsolo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Sötét téma"
+                android:textSize="18sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/feketeHatterKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Fekete háttér (AMOLED)"
+                android:textSize="16sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/kedvencekKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Kedvencek letiltása"
+                android:textSize="18sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/tartalomCimekKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Tartalom címek"
+                android:textSize="18sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/tartalomCimstrukturaKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Tartalom teljes címstruktúra"
+                android:textSize="16sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/hivatkozasCimekKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Hivatkozás címek"
+                android:textSize="18sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Switch
+                android:id="@+id/hivatkozasCimstrukturaKapcsolo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:text="Hivatkozás teljes címstruktúra"
+                android:textSize="16sp"
+                android:theme="@style/Theme.Kapcsolo"/>
+
+            <Button
+                android:id="@+id/alapBeallitasok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="25dp"
+                android:text="Minden alaphelyzetbe" />
+
+            <Button
+                android:id="@+id/betuAlaphelyzetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Betűméret alaphelyzetbe"/>
+
+            <TextView
+                android:id="@+id/betuMeretAllitoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/temaValtasKapcsolo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:text="Betűméret:"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/betuMeretAllito"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/betuMeretAllitoText"
+                android:max="100"
+                android:padding="12dp"
+                android:progress="30"
+                android:theme="@style/Theme.Barna" />
+
+            <TextView
+                android:id="@+id/sortavAllitoText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/betuMeretAllitoText"
+                android:layout_alignStart="@+id/betuMeretAllitoText"
+                android:layout_below="@+id/betuMeretAllito"
+                android:text="Sortávolság:"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <SeekBar
+                android:id="@+id/sortavAllito"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/sortavAllitoText"
+                android:max="10"
+                android:padding="12dp"
+                android:progress="4"
+                android:theme="@style/Theme.Barna" />
+
+            <WebView
+                android:id="@+id/mintaWebView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/alapBeallitasok"
+                android:layout_below="@+id/sortavAllito"
+                android:layout_weight="3.64"
+                android:minHeight="200dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

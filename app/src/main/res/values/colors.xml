@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b46d39</color>
+    <color name="colorPrimaryDark">#995b2e</color> <!--#995b2e-->
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="hatterSzin">#fde9ac</color>
+    <color name="sotetKeresoHatter">#212121</color>
+    <color name="dialogSotetHatter">#424242</color>
+</resources>

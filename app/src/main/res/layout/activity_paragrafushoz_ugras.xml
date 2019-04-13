@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_paragrafushoz_ugras"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="hu.kek.ParagrafushozUgrasActivity">
+
+    <TextView
+        android:text="Kezdő pont:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paragrafusKezdoText"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/vegeParagrafusText"
+        android:layout_marginTop="10dp"
+        android:numeric="integer|signed|decimal"
+        android:layout_below="@+id/paragrafusVegeText"
+        android:layout_centerHorizontal="true"
+        android:width="80dp"
+        android:textAlignment="center"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:theme="@style/Theme.Bevitel" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberSigned"
+        android:ems="10"
+        android:id="@+id/kezdoParagrafusText"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:numeric="integer|signed|decimal"
+        android:selectAllOnFocus="false"
+        android:width="80dp"
+        android:layout_below="@+id/paragrafusKezdoText"
+        android:layout_alignLeft="@+id/vegeParagrafusText"
+        android:layout_alignStart="@+id/vegeParagrafusText"
+        android:textAlignment="center"
+        android:textColorLink="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:theme="@style/Theme.Bevitel"
+        android:singleLine="false" />
+
+    <TextView
+        android:text="Vége pont:"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/paragrafusVegeText"
+        android:textSize="20sp"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/kezdoParagrafusText"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Ugrás"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/ugrasButton"
+        android:textSize="18sp"
+        android:width="120dp"
+        android:height="60dp"
+        android:layout_below="@+id/cimekMegjeleniteseParagrafus"
+        android:layout_centerHorizontal="true" />
+
+    <Switch
+        android:text="Címek megjenítése "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/cimekMegjeleniteseParagrafus"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:theme="@style/Theme.Kapcsolo"
+        android:checked="true"
+        android:layout_below="@+id/vegeParagrafusText"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Kapcsolo" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.Feher" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="Theme.Fekete" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+
+    <style name="Theme.Bevitel" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+
+    <style name="Theme.BevitelSotet" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/hatterSzin</item>
+        <item name="colorPrimaryDark">@color/hatterSzin</item>
+        <item name="colorAccent">@color/hatterSzin</item>
+        <item name="backgroundTint">@color/hatterSzin</item>
+    </style>
+
+    <style name="Theme.Barna" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+    <style name="DialogSotet" parent="Theme.AppCompat.DayNight.Dialog">
+        <item name="colorPrimary">@color/hatterSzin</item>
+        <item name="colorPrimaryDark">@color/hatterSzin</item>
+        <item name="colorAccent">@color/hatterSzin</item>
+        <item name="android:windowBackground">@color/dialogSotetHatter</item>
+        <item name="android:background">@color/dialogSotetHatter</item>
+    </style>
+
+    <style name="AlertDialogSotet" parent="Theme.AppCompat">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorAccent">@android:color/white</item>
+    </style>
+
+    <style name="AlertDialogVilagos" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">@android:color/black</item>
+    </style>
+</resources>

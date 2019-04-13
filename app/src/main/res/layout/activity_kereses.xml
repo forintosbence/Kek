@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_kereses"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="hu.kek.KeresesActivity">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/kereseAcText"
+        android:textAlignment="center"
+        android:textColorLink="@color/colorPrimary"
+        android:backgroundTint="@color/colorPrimary"
+        android:inputType="textAutoComplete"
+        android:theme="@style/Theme.Bevitel" />
+
+    <Switch
+        android:text="Találatok kiemelése "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/szavakKapcsolo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:id="@+id/kiemelKapcsolo"
+        android:textSize="16sp"
+        android:theme="@style/Theme.Kapcsolo" />
+
+    <Switch
+        android:text="Csak teljes szavak  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/szavakKapcsolo"
+        android:textSize="16sp"
+        android:theme="@style/Theme.Kapcsolo"
+        android:checked="false"
+        android:layout_below="@+id/kereseAcText"
+        android:layout_centerHorizontal="true" />
+
+    <Switch
+        android:text="Szentszéki dokumentumokban is "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/apostoliKapcsolo"
+        android:textSize="16sp"
+        android:checked="false"
+        android:theme="@style/Theme.Kapcsolo"
+        android:layout_below="@+id/kiemelKapcsolo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:text="Keresés"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/keresesAcButton"
+        android:textSize="16sp"
+        android:width="130dp"
+        android:height="60dp"
+        android:layout_below="@+id/apostoliKapcsolo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp" />
+</RelativeLayout>

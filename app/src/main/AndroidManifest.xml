@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="hu.kek">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <!-- <uses-permission android:name="android.permission.INTERNET" /> -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".FoAblak">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity android:name=".SzentIrasActivity"/>
+        <activity android:name=".BevezetokActivity"/>
+        <activity android:name=".KekSzovegActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hu.kek.TartalomActivity"/>
+        </activity>
+        <activity android:name=".TartalomActivity"/>
+        <activity
+            android:name=".TargymutatoActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity
+            android:name=".ParagrafushozUgrasActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity
+            android:name=".KeresesActivity"
+            android:windowSoftInputMode="stateAlwaysVisible"/>
+        <activity android:name=".TalalatokActivity"/>
+        <activity android:name=".ImpresszumActivity"/>
+        <activity android:name=".TematikusActivity"/>
+        <activity android:name=".BeallitasokActivity"/>
+        <activity
+            android:name=".TargymutatoElolapActivity"
+            android:windowSoftInputMode="stateAlwaysHidden"/>
+        <activity android:name=".EgyhaziActivity"/>
+        <activity android:name=".KedvencekActivity">
+        </activity>
+    </application>
+
+</manifest>

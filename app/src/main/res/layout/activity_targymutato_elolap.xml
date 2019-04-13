@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_targymutato_elolap"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="10dp"
+    tools:context="hu.kek.TargymutatoElolapActivity">
+
+    <Button
+        android:text="Keresés"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tematikusKereses"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/tematikusKeresesMezo"
+        android:textSize="18sp"
+        android:width="200dp"
+        android:layout_alignBottom="@+id/tematikusKereses"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/tematikusKereses"
+        android:layout_toStartOf="@+id/tematikusKereses"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorLink="@color/colorPrimary"
+        android:textColorHint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:hint="Keresés a tárgymutatóban"
+        android:layout_marginLeft="10dp"
+        android:theme="@style/Theme.Bevitel"
+        android:inputType="textAutoComplete" />
+
+    <WebView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tematikusKereses"
+        android:id="@+id/targymutatoAbcView"
+        android:layout_marginTop="7dp" />
+</RelativeLayout>
