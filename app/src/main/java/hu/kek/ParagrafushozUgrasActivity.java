@@ -6,7 +6,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,7 +17,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class ParagrafushozUgrasActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class ParagrafushozUgrasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_paragrafushoz_ugras);
         getSupportActionBar().setTitle("Szakaszhoz ugrás");
 
-        //((Switch)findViewById(R.id.cimekMegjeleniteseParagrafus)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
+        //((SwitchCompat)findViewById(R.id.cimekMegjeleniteseParagrafus)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
         ((TextView) findViewById(R.id.paragrafusKezdoText)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
         ((TextView) findViewById(R.id.paragrafusVegeText)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
 
@@ -39,7 +40,7 @@ public class ParagrafushozUgrasActivity extends AppCompatActivity {
         final EditText vegeMezo = (EditText) findViewById(R.id.vegeParagrafusText);
         kezdoMezo.setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
         vegeMezo.setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
-        Switch cimekMegjelenitese = (Switch)findViewById(R.id.cimekMegjeleniteseParagrafus);
+        SwitchCompat cimekMegjelenitese = (SwitchCompat)findViewById(R.id.cimekMegjeleniteseParagrafus);
         cimekMegjelenitese.setVisibility(View.GONE);
 
 
@@ -170,7 +171,7 @@ public class ParagrafushozUgrasActivity extends AppCompatActivity {
                 @Override
                 public void run() {
                     /*int cim;
-                    if(((Switch)findViewById(R.id.cimekMegjeleniteseParagrafus)).isChecked()) {
+                    if(((SwitchCompat)findViewById(R.id.cimekMegjeleniteseParagrafus)).isChecked()) {
                         cim = 1;
                     } else {
                         cim = 0;
@@ -201,7 +202,7 @@ public class ParagrafushozUgrasActivity extends AppCompatActivity {
                     intent.putExtra("par", "kekapp:/#p"+((EditText)findViewById(R.id.kezdoParagrafusText)).getText()+"–"+((EditText)findViewById(R.id.vegeParagrafusText)).getText());
                     intent.putExtra("fejlec",((EditText)findViewById(R.id.kezdoParagrafusText)).getText()+" – "+((EditText)findViewById(R.id.vegeParagrafusText)).getText() + ". pont");
                 }
-               /* if(((Switch)findViewById(R.id.cimekMegjeleniteseParagrafus)).isChecked()) {
+               /* if(((SwitchCompat)findViewById(R.id.cimekMegjeleniteseParagrafus)).isChecked()) {
                     intent.putExtra("szakaszCimek", 1);
                 } else {
                     intent.putExtra("szakaszCimek", 0);

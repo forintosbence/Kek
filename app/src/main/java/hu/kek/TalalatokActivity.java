@@ -2,8 +2,9 @@ package hu.kek;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -156,7 +157,9 @@ public class TalalatokActivity extends AppCompatActivity {
             getSupportActionBar().setTitle(talalatok.size() + " helyen "+osszesTalalat+" találat");
         }
 
-        mWebView.loadData("<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;} h1,h2,h3,h4,h5,h6,h7{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline;} p{text-align: justify; margin: 0px; margin-top: 3px; word-wrap:break-word;} a{color:"+Statikus.szovegSzin+"; text-decoration:none; padding: 15px 0px; display: block; border-bottom: 1px solid #ababab;} .kiemel{color:red;}</style>" + html + "</body></html>", "text/html; charset=utf-8", "UTF-8");
+        String text = "<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;} h1,h2,h3,h4,h5,h6,h7{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline;} p{text-align: justify; margin: 0px; margin-top: 3px; word-wrap:break-word;} a{color:"+Statikus.szovegSzin+"; text-decoration:none; padding: 15px 0px; display: block; border-bottom: 1px solid #ababab;} .kiemel{color:red;}</style>" + html + "</body></html>";
+        text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(text, "text/html", "base64");
     }
 
     public static boolean kereses(String keresendo, boolean apostoli, boolean teljesSzavak, boolean talalatKiemeles) {

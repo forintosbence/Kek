@@ -5,13 +5,14 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 
 public class KeresesActivity extends AppCompatActivity {
 
@@ -25,9 +26,9 @@ public class KeresesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Keresés");
 
         ((EditText)findViewById(R.id.kereseAcText)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
-        ((Switch)findViewById(R.id.apostoliKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
-        ((Switch)findViewById(R.id.szavakKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
-        ((Switch)findViewById(R.id.kiemelKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
+        ((SwitchCompat)findViewById(R.id.apostoliKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
+        ((SwitchCompat)findViewById(R.id.szavakKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
+        ((SwitchCompat)findViewById(R.id.kiemelKapcsolo)).setTextColor(Color.parseColor(Statikus.szovegSzin.toString()));
 
         Button keresesButton = (Button) findViewById(R.id.keresesAcButton);
         keresesButton.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +67,7 @@ public class KeresesActivity extends AppCompatActivity {
                             if(keresendo.matches("(.*) $")) {
                                 keresendo = keresendo.substring(0, keresendo.length()-1);
                             }
-                            TalalatokActivity.kereses(keresendo, ((Switch)findViewById(R.id.apostoliKapcsolo)).isChecked(), ((Switch)findViewById(R.id.szavakKapcsolo)).isChecked(), ((Switch)findViewById(R.id.kiemelKapcsolo)).isChecked());
+                            TalalatokActivity.kereses(keresendo, ((SwitchCompat)findViewById(R.id.apostoliKapcsolo)).isChecked(), ((SwitchCompat)findViewById(R.id.szavakKapcsolo)).isChecked(), ((SwitchCompat)findViewById(R.id.kiemelKapcsolo)).isChecked());
                             Intent intent = new Intent(KeresesActivity.this, TalalatokActivity.class);
                             startActivity(intent);
                             dialog.dismiss();

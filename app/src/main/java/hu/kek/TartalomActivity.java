@@ -4,21 +4,22 @@ import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
-import android.text.Html;
+import androidx.appcompat.widget.SearchView;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
+import androidx.webkit.WebViewClientCompat;
+
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import android.util.Base64;
 
 import hu.kek.Adatok.AdatCimek;
 import hu.kek.Adatok.Adatok;
@@ -29,8 +30,8 @@ public class TartalomActivity extends AppCompatActivity {
     private static String szoveg = "";
     private ProgressDialog dialog;
     public static boolean szovegOsszerakva = false;
-    private float sortav = BeallitasokActivity.sortav;
-    private float alapBetuMeret = BeallitasokActivity.alapBetuMeret;
+    private final float sortav = BeallitasokActivity.sortav;
+    private final float alapBetuMeret = BeallitasokActivity.alapBetuMeret;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,19 +49,19 @@ public class TartalomActivity extends AppCompatActivity {
         dialog.setCancelable(true);
         dialog.show();
 
-        mWebView = (WebView) findViewById(R.id.TartalomView);
+        mWebView = findViewById(R.id.TartalomView);
         WebSettings settings = mWebView.getSettings();
         settings.setDefaultTextEncodingName("utf-8");
         settings.setDefaultFontSize(18);
         settings.setBuiltInZoomControls(true);
         settings.setDisplayZoomControls(false);
 
-        mWebView.setWebChromeClient(new WebChromeClient());
+        //mWebView.setWebChromeClient(new WebChromeClient());
         Statikus.webViewSzinBeallit(mWebView);
         settings.setJavaScriptEnabled(true);
         settings.setJavaScriptCanOpenWindowsAutomatically(true);
 
-        mWebView.setWebViewClient(new WebViewClient()
+        mWebView.setWebViewClient(new WebViewClientCompat()
         {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -80,7 +81,10 @@ public class TartalomActivity extends AppCompatActivity {
 
 
         });
-        mWebView.loadData("<html><body><style>body{ /*background-color:#fde9ac;*/line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;} h1,h2,h3,h4,h5,h6,h7,span{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline; display:inline-block; max-width:82%;} a{text-decoration: none; color:"+Statikus.szovegSzin+"; padding: 12px 0px; display: inline-block; border-bottom: 1px solid #ababab; width:100%;} h1{font-size: 1.4em; font-weight: bold;} h2{padding-left: 10px; font-size: 1.3em; font-weight: bold;} h3{padding-left: 15px; font-size: 1.2em; font-weight: bold;} h4{padding-left: 20px; font-size: 1.1em; font-weight: bold;} h5{padding-left: 25px; font-size: 1em; font-weight: bold;} h6{padding-left: 30px; font-size: 0.9em; font-weight: bold;} h7{padding-left: 40px; font-size: 0.9em; text-transform: uppercase;} .osszefoglalas{padding-left: 40px; font-size: 1em; font-weight: bold;} .kiemeltKetto{padding-left: 10px; font-size: 1.2em; font-weight: bold; text-transform: uppercase;} .eloszo{padding-left: 25px; font-size: 1.1em;} .tov{float:right; font-size: 1.9em; margin-right:2%; color: #ababab;}</style>"+szoveg+"</body></html>", "text/html; charset=utf-8", "UTF-8");
+
+        String webData = "<!doctype html><html><head><style>body{ /*background-color:#fde9ac;*/line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;} h1,h2,h3,h4,h5,h6,h7,span{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline; display:inline-block; max-width:82%;} a{text-decoration: none; color:"+Statikus.szovegSzin+"; padding: 12px 0px; display: inline-block; border-bottom: 1px solid #ababab; width:100%;} h1{font-size: 1.4em; font-weight: bold;} h2{padding-left: 10px; font-size: 1.3em; font-weight: bold;} h3{padding-left: 15px; font-size: 1.2em; font-weight: bold;} h4{padding-left: 20px; font-size: 1.1em; font-weight: bold;} h5{padding-left: 25px; font-size: 1em; font-weight: bold;} h6{padding-left: 30px; font-size: 0.9em; font-weight: bold;} h7{padding-left: 40px; font-size: 0.9em; text-transform: uppercase;} .osszefoglalas{padding-left: 40px; font-size: 1em; font-weight: bold;} .kiemeltKetto{padding-left: 10px; font-size: 1.2em; font-weight: bold; text-transform: uppercase;} .eloszo{padding-left: 25px; font-size: 1.1em;} .tov{float:right; font-size: 1.9em; margin-right:2%; color: #ababab;}</style></head><body>"+szoveg+"</body></html>";
+        webData = Base64.encodeToString(webData.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(webData, "text/html", "base64");
 
     }
 
@@ -168,7 +172,7 @@ public class TartalomActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String query) {
-                mWebView.findAllAsync(query.toString());
+                mWebView.findAllAsync(query);
                 return true;
             }
         });

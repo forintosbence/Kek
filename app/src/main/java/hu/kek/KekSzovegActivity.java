@@ -12,11 +12,12 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
 import android.text.Html;
+import android.util.Base64;
 import android.view.ContextThemeWrapper;
 import android.view.GestureDetector;
 import android.view.Gravity;
@@ -345,7 +346,9 @@ public class KekSzovegActivity extends AppCompatActivity {
         if(!BeallitasokActivity.kedvencekTiltva) {
             magasit = "<br /><br />";
         }
-        mWebView.loadDataWithBaseURL(null, "<html><body><style>body, table{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} h1,h2,h3,h4,h5,h6,h7{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline;} h1{padding: 10px 0px; font-size: 1.4em; font-weight: bold; text-align:center;} h2{padding: 10px 0px;font-size: 1.3em; font-weight: bold; text-align:center;} h3{padding: 10px 0px;font-size: 1.2em; font-weight: bold; text-align:center;} h4{padding: 10px 0px;font-size: 1.1em; font-weight: bold;text-align:center;} h5{padding: 7px 0px;; font-size: 1em; font-weight: bold;text-align:center;} h6{padding: 7px 0px;font-size: 0.9em; font-weight: bold;} h7{padding: 7px 0px;display: block; font-size: 0.9em; text-transform: uppercase;} p{padding: 0px; margin: 7px 0px 17px 0px;text-align: justify; } a{font-style:normal; text-decoration: none;} .labjegylink{margin:5px 0px; color:"+Statikus.linkSzin+";} .parlink{margin-left:10px; color:"+Statikus.linkSzin+";} .osszefoglalas{padding: 10px 0px; font-weight: bold; display:block;} .kiemeltKetto, .eloszo{padding:10px 0px; font-size: 1.2em; font-weight: bold; text-transform: uppercase; display:block; text-align:center;} .behuzas{margin-left: 2em;} .idezet, .szidezet{font-style: italic; display:block; margin: 1em 0em 1em 1em;} .szidezet{text-align: justify;} .kulonallo{margin: 1em 0em;} .szkulonallo{display: inline-block; margin: 1em 0em;} </style>"+szoveg+magasit+"</body></html>", "text/html", "UTF-8", null);
+        String text = "<html><body><style>body, table{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} h1,h2,h3,h4,h5,h6,h7{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline;} h1{padding: 10px 0px; font-size: 1.4em; font-weight: bold; text-align:center;} h2{padding: 10px 0px;font-size: 1.3em; font-weight: bold; text-align:center;} h3{padding: 10px 0px;font-size: 1.2em; font-weight: bold; text-align:center;} h4{padding: 10px 0px;font-size: 1.1em; font-weight: bold;text-align:center;} h5{padding: 7px 0px;; font-size: 1em; font-weight: bold;text-align:center;} h6{padding: 7px 0px;font-size: 0.9em; font-weight: bold;} h7{padding: 7px 0px;display: block; font-size: 0.9em; text-transform: uppercase;} p{padding: 0px; margin: 7px 0px 17px 0px;text-align: justify; } a{font-style:normal; text-decoration: none;} .labjegylink{margin:5px 0px; color:"+Statikus.linkSzin+";} .parlink{margin-left:10px; color:"+Statikus.linkSzin+";} .osszefoglalas{padding: 10px 0px; font-weight: bold; display:block;} .kiemeltKetto, .eloszo{padding:10px 0px; font-size: 1.2em; font-weight: bold; text-transform: uppercase; display:block; text-align:center;} .behuzas{margin-left: 2em;} .idezet, .szidezet{font-style: italic; display:block; margin: 1em 0em 1em 1em;} .szidezet{text-align: justify;} .kulonallo{margin: 1em 0em;} .szkulonallo{display: inline-block; margin: 1em 0em;} </style>"+szoveg+magasit+"</body></html>";
+        text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(text, "text/html", "base64");
     }
 
     @Override

@@ -6,8 +6,8 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.PowerManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -16,8 +16,9 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 public class BeallitasokActivity extends AppCompatActivity {
 
@@ -41,30 +42,30 @@ public class BeallitasokActivity extends AppCompatActivity {
         setContentView(R.layout.activity_beallitasok);
         getSupportActionBar().setTitle("Beállítások");
 
-        final Switch kepernyoKapcsolo = (Switch) findViewById(R.id.kepernyozarKapcsolo);
+        final SwitchCompat kepernyoKapcsolo = (SwitchCompat) findViewById(R.id.kepernyozarKapcsolo);
         kepernyoKapcsolo.setChecked(kepernyozarTilt);
 
-        final Switch temaKapcsolo = (Switch) findViewById(R.id.temaValtasKapcsolo);
+        final SwitchCompat temaKapcsolo = (SwitchCompat) findViewById(R.id.temaValtasKapcsolo);
         temaKapcsolo.setChecked(sotetTema);
 
-        final Switch feketeHatterKapcsolo = (Switch) findViewById(R.id.feketeHatterKapcsolo);
+        final SwitchCompat feketeHatterKapcsolo = (SwitchCompat) findViewById(R.id.feketeHatterKapcsolo);
         feketeHatterKapcsolo.setChecked(feketeHatter);
         feketeHatterKapcsolo.setEnabled(sotetTema);
 
-        final Switch kedvencekKapcsolo = (Switch) findViewById(R.id.kedvencekKapcsolo);
+        final SwitchCompat kedvencekKapcsolo = (SwitchCompat) findViewById(R.id.kedvencekKapcsolo);
         kedvencekKapcsolo.setChecked(kedvencekTiltva);
 
-        final Switch tartalomCimekKapcsolo = (Switch) findViewById(R.id.tartalomCimekKapcsolo);
+        final SwitchCompat tartalomCimekKapcsolo = (SwitchCompat) findViewById(R.id.tartalomCimekKapcsolo);
         tartalomCimekKapcsolo.setChecked(tartalomCimek);
 
-        final Switch tartalomCimstrukturaKapcsolo = (Switch) findViewById(R.id.tartalomCimstrukturaKapcsolo);
+        final SwitchCompat tartalomCimstrukturaKapcsolo = (SwitchCompat) findViewById(R.id.tartalomCimstrukturaKapcsolo);
         tartalomCimstrukturaKapcsolo.setChecked(tartalomCimStruktura);
         tartalomCimstrukturaKapcsolo.setEnabled(tartalomCimek);
 
-        final Switch hivatkozasCimekKapcsolo = (Switch) findViewById(R.id.hivatkozasCimekKapcsolo);
+        final SwitchCompat hivatkozasCimekKapcsolo = (SwitchCompat) findViewById(R.id.hivatkozasCimekKapcsolo);
         hivatkozasCimekKapcsolo.setChecked(hivatkozasCimek);
 
-        final Switch hivatkozasCimstrukturaKapcsolo = (Switch) findViewById(R.id.hivatkozasCimstrukturaKapcsolo);
+        final SwitchCompat hivatkozasCimstrukturaKapcsolo = (SwitchCompat) findViewById(R.id.hivatkozasCimstrukturaKapcsolo);
         hivatkozasCimstrukturaKapcsolo.setChecked(hivatkozasCimStruktura);
         hivatkozasCimstrukturaKapcsolo.setEnabled(hivatkozasCimek);
 
@@ -387,7 +388,12 @@ public class BeallitasokActivity extends AppCompatActivity {
 
     private void kiir() {
         String szoveg = "<p class=\"par\"><b>27</b> Az Isten utáni vágy az ember szívébe van írva, mert Istentől és Istenért teremtetett; Isten pedig szüntelenül hivogatja magához az embert, és az ember csak Istenben találja meg az igazságot és a boldogságot, amelyet szüntelenül keres: <span class=\"idezet\">„Az emberi méltóság lényeges része az Istennel való közösségre szóló meghívás. Az ember kezdettől fogva párbeszédre hivatott Istennel, ugyanis csak azért létezik, mert Isten szeretetből megteremtette és szeretetből létben tartja, s csak akkor élhet teljesen az igazság szerint, ha önként elismeri ezt a szeretetet, és rábízza magát a Teremtőjére.”</span></p>";
-        mWebView.loadData("<html><body><style>p{padding: 3px 0px;text-align: justify; line-height:"+sortav+"em; font-size: "+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} .behuzas{margin-left: 2em;} .idezet, .szidezet{font-style: italic; display:block; margin: 1em 0em 1em 1em;} .szidezet{text-align: justify;} .kulonallo{margin: 1em 0em;} .szkulonallo{display: inline-block; margin: 1em 0em;} </style>"+szoveg+"</body></html>", "text/html; charset=utf-8", "UTF-8");
+
+
+        String webData = "<html><body><style>p{padding: 3px 0px;text-align: justify; line-height:"+sortav+"em; font-size: "+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} .behuzas{margin-left: 2em;} .idezet, .szidezet{font-style: italic; display:block; margin: 1em 0em 1em 1em;} .szidezet{text-align: justify;} .kulonallo{margin: 1em 0em;} .szkulonallo{display: inline-block; margin: 1em 0em;} </style>"+szoveg+"</body></html>";
+
+        webData = Base64.encodeToString(webData.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(webData, "text/html", "base64");
     }
 
 

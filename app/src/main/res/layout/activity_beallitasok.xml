@@ -16,7 +16,7 @@
             android:orientation="vertical"
             android:weightSum="1">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/kepernyozarKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
                 android:textSize="18sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/temaValtasKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
                 android:textSize="18sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/feketeHatterKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                 android:textSize="16sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/kedvencekKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,7 +64,7 @@
                 android:textSize="18sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/tartalomCimekKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:textSize="18sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/tartalomCimstrukturaKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 android:textSize="16sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hivatkozasCimekKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                 android:textSize="18sp"
                 android:theme="@style/Theme.Kapcsolo"/>
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/hivatkozasCimstrukturaKapcsolo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

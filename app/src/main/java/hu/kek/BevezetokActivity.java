@@ -5,9 +5,11 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import android.util.Base64;
 import android.view.ContextThemeWrapper;
 import android.view.Gravity;
 import android.view.Menu;
@@ -79,7 +81,10 @@ public class BevezetokActivity extends AppCompatActivity {
             text = "<html><body><style>p {line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em; color:"+Statikus.szovegSzin+"} a{text-decoration: none; color:"+Statikus.linkSzin+";}</style>" + AdatApostoli.fidei+ "</body></html>";
         }
         text = text.replaceAll("#lj", "kekapp://#lj");
-        mWebView.loadData(text, "text/html; charset=utf-8", "UTF-8");
+
+        text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(text, "text/html", "base64");
+
         BeallitasokActivity.kepernyoLetilt(this, BeallitasokActivity.kepernyozarTilt);
     }
 

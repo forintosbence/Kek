@@ -3,9 +3,11 @@ package hu.kek;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import androidx.appcompat.widget.SearchView;
+
+import android.util.Base64;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
@@ -60,7 +62,9 @@ public class SzentIrasActivity extends AppCompatActivity {
             }*/
         });
 
-        mWebView.loadData("<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;text-align: center; color:"+Statikus.szovegSzin+";} h1{margin: 20px 0px 25px 0px; font-size: 1.2em;font-weight: bold;} a{padding: 12px 0px; display: block; color:"+Statikus.szovegSzin+"; text-decoration:none; border-bottom: 1px solid #ababab;} a:nth-of-type(1), a:nth-of-type(41){border-top: 1px solid #ababab;}</style>"+ AdatSzentiras.szentirasKonyvek+"</body></html>", "text/html; charset=utf-8", "UTF-8");
+        String text = "<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;text-align: center; color:"+Statikus.szovegSzin+";} h1{margin: 20px 0px 25px 0px; font-size: 1.2em;font-weight: bold;} a{padding: 12px 0px; display: block; color:"+Statikus.szovegSzin+"; text-decoration:none; border-bottom: 1px solid #ababab;} a:nth-of-type(1), a:nth-of-type(41){border-top: 1px solid #ababab;}</style>"+ AdatSzentiras.szentirasKonyvek+"</body></html>";
+        text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(text, "text/html", "base64");
     }
 
     public void kiir (String paragrafus) {
@@ -71,7 +75,9 @@ public class SzentIrasActivity extends AppCompatActivity {
             for (int i = 0; i< AdatSzentiras.szentiras[konyv].length; ++i){
                 konyvSzoveg += AdatSzentiras.szentiras[konyv][i];
             }
-            mWebView.loadData("<html><body><style>body, table{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} h2,span{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline; padding: 15px 0px 2px 0px;} h2{font-size: 1.05em; font-weight: bold; text-align:center; margin-bottom: 1em;} a{padding: 8px 0px 8px 14px; white-space:nowrap; display: inline-block; text-decoration: none; color:"+Statikus.linkSzin+";} table {margin: 0 auto; /*border-spacing: 0px;*/} td{border-bottom: 1px solid #ababab;} td:nth-child(1){text-align: right; white-space: nowrap; padding-right: 5px; padding-top:12px; vertical-align: middle;}</style>"+konyvSzoveg+"</body></html>", "text/html; charset=utf-8", "UTF-8");
+            String text = "<html><body><style>body, table{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em; color:"+Statikus.szovegSzin+";} h2,span{margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit;vertical-align: baseline; padding: 15px 0px 2px 0px;} h2{font-size: 1.05em; font-weight: bold; text-align:center; margin-bottom: 1em;} a{padding: 8px 0px 8px 14px; white-space:nowrap; display: inline-block; text-decoration: none; color:"+Statikus.linkSzin+";} table {margin: 0 auto; /*border-spacing: 0px;*/} td{border-bottom: 1px solid #ababab;} td:nth-child(1){text-align: right; white-space: nowrap; padding-right: 5px; padding-top:12px; vertical-align: middle;}</style>"+konyvSzoveg+"</body></html>";
+            text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+            mWebView.loadData(text, "text/html", "base64");
         } else {
             Intent intent = new Intent(SzentIrasActivity.this, KekSzovegActivity.class);
             intent.putExtra("par", paragrafus);

@@ -1,12 +1,12 @@
 package hu.kek;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.ContextThemeWrapper;
 import android.view.View;
 import android.webkit.WebChromeClient;
@@ -56,7 +56,9 @@ public class TargymutatoElolapActivity extends AppCompatActivity {
 
         });
 
-        mWebView.loadData("<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;text-align: center; /*background-color: #fafafa;*/} a{width: 25%; margin: -1px 0px 0px -1px; padding: 16px 12px; display: inline-block; color:"+Statikus.szovegSzin+"; text-decoration:none; border: 1px solid #ababab; font-size: 1.2em; } </style>"+ AdatTematikus.tematikusAbc+"</body></html>", "text/html; charset=utf-8", "UTF-8");
+        String text = "<html><body><style>body{line-height:"+sortav+"em; font-size:"+alapBetuMeret+"em;text-align: center; /*background-color: #fafafa;*/} a{width: 25%; margin: -1px 0px 0px -1px; padding: 16px 12px; display: inline-block; color:"+Statikus.szovegSzin+"; text-decoration:none; border: 1px solid #ababab; font-size: 1.2em; } </style>"+ AdatTematikus.tematikusAbc+"</body></html>";
+        text = Base64.encodeToString(text.getBytes(), Base64.NO_PADDING);
+        mWebView.loadData(text, "text/html", "base64");
 
         final Button tematikusKereses = (Button) findViewById(R.id.tematikusKereses);
         tematikusKereses.setOnClickListener(new View.OnClickListener() {

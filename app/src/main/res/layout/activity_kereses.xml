@@ -23,7 +23,7 @@
         android:inputType="textAutoComplete"
         android:theme="@style/Theme.Bevitel" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:text="Találatok kiemelése "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:textSize="16sp"
         android:theme="@style/Theme.Kapcsolo" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:text="Csak teljes szavak  "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         android:layout_below="@+id/kereseAcText"
         android:layout_centerHorizontal="true" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:text="Szentszéki dokumentumokban is "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

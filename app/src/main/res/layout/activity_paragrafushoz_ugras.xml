@@ -82,7 +82,7 @@
         android:layout_below="@+id/cimekMegjeleniteseParagrafus"
         android:layout_centerHorizontal="true" />
 
-    <Switch
+    <androidx.appcompat.widget.SwitchCompat
         android:text="Címek megjenítése "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
